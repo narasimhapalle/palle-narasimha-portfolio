@@ -88,7 +88,7 @@ const About = () => {
                   {/* Photo inside */}
                   <img
                     src={stackImage}
-                    alt={personalInfo.name}
+                    alt="Palle Narasimha — Java Full Stack Developer, TAP Academy student"
                     className="w-full flex-1 rounded-xl object-cover object-top shadow-inner"
                   />
                 </div>

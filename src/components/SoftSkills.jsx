@@ -72,3 +72,4 @@ const SoftSkills = () => {
 }
 
 export default SoftSkills
+
