@@ -2,7 +2,7 @@
 
 A high-performance, single-page developer portfolio showcasing full-stack Java projects, technical skills, and experience.
 
-**Live site:** https://YOUR-SITE-URL/
+**Live site:** https://myportfolio-livid-gamma-83.vercel.app
 
 ---
 
