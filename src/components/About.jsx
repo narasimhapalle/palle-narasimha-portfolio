@@ -53,6 +53,12 @@ const About = () => {
               type="button"
               aria-label="Flip ID card"
               onClick={() => setFlipped((prev) => !prev)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault()
+                  setFlipped((prev) => !prev)
+                }
+              }}
               style={{ perspective: '1200px', WebkitPerspective: '1200px' }}
               className="relative w-full max-w-[280px] -rotate-3 hover:rotate-0 transition-transform duration-500 [perspective:1200px] focus:outline-none cursor-pointer"
             >
@@ -65,13 +71,16 @@ const About = () => {
                   WebkitTransform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
                 }}
               >
-                {/* FRONT face: Existing dark badge card */}
+                {/* FRONT face: Dark badge card with photo */}
                 <div
                   style={{
                     backfaceVisibility: 'hidden',
                     WebkitBackfaceVisibility: 'hidden',
+                    opacity: flipped ? 0 : 1,
+                    pointerEvents: flipped ? 'none' : 'auto',
+                    transition: 'opacity 0.25s ease-in-out',
                   }}
-                  className="absolute inset-0 [backface-visibility:hidden] bg-gray-900 rounded-2xl p-3 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.7)] flex flex-col"
+                  className="absolute inset-0 [backface-visibility:hidden] bg-gray-900 rounded-2xl p-3 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.7)] flex flex-col z-10"
                 >
                   {/* Cutout slot */}
                   <div className="w-12 h-1.5 bg-black/60 rounded-full mx-auto mb-3 shrink-0" />
@@ -91,8 +100,11 @@ const About = () => {
                     WebkitBackfaceVisibility: 'hidden',
                     transform: 'rotateY(180deg)',
                     WebkitTransform: 'rotateY(180deg)',
+                    opacity: flipped ? 1 : 0,
+                    pointerEvents: flipped ? 'auto' : 'none',
+                    transition: 'opacity 0.25s ease-in-out',
                   }}
-                  className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-2xl bg-gradient-to-br from-[#141414] to-[#1f1f1f] p-5 text-white text-left flex flex-col justify-between shadow-[0_25px_50px_-12px_rgba(0,0,0,0.7)] overflow-hidden"
+                  className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-2xl bg-gradient-to-br from-[#141414] to-[#1f1f1f] p-5 text-white text-left flex flex-col justify-between shadow-[0_25px_50px_-12px_rgba(0,0,0,0.7)] z-20"
                 >
                   {/* 6px red bar across the top */}
                   <div className="absolute top-0 left-0 w-full h-[6px] bg-[#ff2a2a] rounded-t-2xl" />
@@ -109,10 +121,10 @@ const About = () => {
                   </div>
 
                   {/* Divider */}
-                  <div className="border-b border-white/10 my-2" />
+                  <div className="border-b border-white/10 my-1.5" />
 
                   {/* Contact & Social Links */}
-                  <div className="space-y-2 text-xs text-white/85">
+                  <div className="space-y-1.5 text-xs text-white/85">
                     {personalInfo.emails?.primary && (
                       <div className="flex items-center space-x-2">
                         <svg
@@ -188,7 +200,7 @@ const About = () => {
                       </div>
                     )}
 
-                    <div className="flex items-center space-x-4 pt-1">
+                    <div className="flex items-center space-x-4 pt-0.5">
                       {socialLinks.linkedin && (
                         <a
                           href={socialLinks.linkedin}
@@ -252,8 +264,11 @@ const About = () => {
               </div>
             </button>
 
-            {/* Flip hint under card */}
-            <p className="text-xs font-bold text-black/60 mt-4 text-center select-none">
+            {/* Flip hint under card - also clickable */}
+            <p
+              onClick={() => setFlipped((prev) => !prev)}
+              className="text-xs font-bold text-black/60 mt-4 text-center select-none cursor-pointer hover:text-black transition-colors"
+            >
               Tap the card to flip ↻
             </p>
           </motion.div>
