@@ -137,7 +137,10 @@ export const projects = [
     description:
       "Developed and deployed a responsive movie discovery application using HTML, CSS, and JavaScript, integrating the TMDB REST API for dynamic movie data.",
     techTags: ["HTML", "CSS", "JavaScript", "REST API", "JSON", "TMDB API"],
-    links: { github: "https://github.com/narasimhapalle", demo: "" }, // demo "" shows "Demo Coming Soon"
+    links: {
+      github: "https://github.com/narasimhapalle",
+      demo: "https://movieflexapp.netlify.app/",
+    },
     isFlagship: true,
   },
   {
@@ -148,7 +151,10 @@ export const projects = [
     description:
       "Developed and deployed a responsive e-commerce frontend using HTML5 and CSS3, focusing on product presentation, intuitive navigation, and structured layouts.",
     techTags: ["HTML5", "CSS3"],
-    links: { github: "https://github.com/narasimhapalle", demo: "" },
+    links: {
+      github: "https://github.com/narasimhapalle",
+      demo: "https://onlineshopping-kappa.vercel.app/",
+    },
     isFlagship: false,
   },
   {
@@ -159,7 +165,10 @@ export const projects = [
     description:
       "Developed a console-based Java ATM Card Security System implementing secure PIN authentication, balance management, and robust exception handling.",
     techTags: ["Java", "OOP", "Exception Handling"],
-    links: { github: "https://github.com/narasimhapalle", demo: "" },
+    links: {
+      github: "https://github.com/narasimhapalle/ATMCardSecurity4",
+      demo: "",
+    },
     isFlagship: false,
   },
 ];
