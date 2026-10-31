@@ -101,7 +101,15 @@ export const technicalSkills = {
   ],
 };
 
-export const leadershipList = [];
+export const leadershipList = [
+  {
+    title: "AI & Coding Community",
+    description:
+      "Collaborated with student peers to conduct coding sessions, explore machine learning algorithms, and build full-stack project prototypes.",
+    role: "Technical Contributor",
+    badge: "Community",
+  },
+];
 
 export const internshipsList = [
   {
