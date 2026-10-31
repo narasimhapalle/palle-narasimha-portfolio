@@ -76,11 +76,10 @@ const About = () => {
                   style={{
                     backfaceVisibility: 'hidden',
                     WebkitBackfaceVisibility: 'hidden',
-                    opacity: flipped ? 0 : 1,
-                    pointerEvents: flipped ? 'none' : 'auto',
-                    transition: 'opacity 0.25s ease-in-out',
+                    transform: 'rotateY(0deg)',
+                    WebkitTransform: 'rotateY(0deg)',
                   }}
-                  className="absolute inset-0 [backface-visibility:hidden] bg-gray-900 rounded-2xl p-3 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.7)] flex flex-col z-10"
+                  className="absolute inset-0 [backface-visibility:hidden] bg-gray-900 rounded-2xl p-3 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.7)] flex flex-col"
                 >
                   {/* Cutout slot */}
                   <div className="w-12 h-1.5 bg-black/60 rounded-full mx-auto mb-3 shrink-0" />
@@ -100,11 +99,8 @@ const About = () => {
                     WebkitBackfaceVisibility: 'hidden',
                     transform: 'rotateY(180deg)',
                     WebkitTransform: 'rotateY(180deg)',
-                    opacity: flipped ? 1 : 0,
-                    pointerEvents: flipped ? 'auto' : 'none',
-                    transition: 'opacity 0.25s ease-in-out',
                   }}
-                  className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-2xl bg-gradient-to-br from-[#141414] to-[#1f1f1f] p-5 text-white text-left flex flex-col justify-between shadow-[0_25px_50px_-12px_rgba(0,0,0,0.7)] z-20"
+                  className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-2xl bg-gradient-to-br from-[#141414] to-[#1f1f1f] p-5 text-white text-left flex flex-col justify-between shadow-[0_25px_50px_-12px_rgba(0,0,0,0.7)]"
                 >
                   {/* 6px red bar across the top */}
                   <div className="absolute top-0 left-0 w-full h-[6px] bg-[#ff2a2a] rounded-t-2xl" />
