@@ -53,14 +53,26 @@ const About = () => {
               type="button"
               aria-label="Flip ID card"
               onClick={() => setFlipped((prev) => !prev)}
+              style={{ perspective: '1200px', WebkitPerspective: '1200px' }}
               className="relative w-full max-w-[280px] -rotate-3 hover:rotate-0 transition-transform duration-500 [perspective:1200px] focus:outline-none cursor-pointer"
             >
               <div
                 className="relative w-full aspect-[3/4] transition-transform duration-700 [transform-style:preserve-3d]"
-                style={{ transform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)' }}
+                style={{
+                  transformStyle: 'preserve-3d',
+                  WebkitTransformStyle: 'preserve-3d',
+                  transform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
+                  WebkitTransform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
+                }}
               >
                 {/* FRONT face: Existing dark badge card */}
-                <div className="absolute inset-0 [backface-visibility:hidden] bg-gray-900 rounded-2xl p-3 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.7)] flex flex-col">
+                <div
+                  style={{
+                    backfaceVisibility: 'hidden',
+                    WebkitBackfaceVisibility: 'hidden',
+                  }}
+                  className="absolute inset-0 [backface-visibility:hidden] bg-gray-900 rounded-2xl p-3 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.7)] flex flex-col"
+                >
                   {/* Cutout slot */}
                   <div className="w-12 h-1.5 bg-black/60 rounded-full mx-auto mb-3 shrink-0" />
 
@@ -73,7 +85,15 @@ const About = () => {
                 </div>
 
                 {/* BACK face: Visiting card */}
-                <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-2xl bg-gradient-to-br from-[#141414] to-[#1f1f1f] p-5 text-white text-left flex flex-col justify-between shadow-[0_25px_50px_-12px_rgba(0,0,0,0.7)] overflow-hidden">
+                <div
+                  style={{
+                    backfaceVisibility: 'hidden',
+                    WebkitBackfaceVisibility: 'hidden',
+                    transform: 'rotateY(180deg)',
+                    WebkitTransform: 'rotateY(180deg)',
+                  }}
+                  className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)] rounded-2xl bg-gradient-to-br from-[#141414] to-[#1f1f1f] p-5 text-white text-left flex flex-col justify-between shadow-[0_25px_50px_-12px_rgba(0,0,0,0.7)] overflow-hidden"
+                >
                   {/* 6px red bar across the top */}
                   <div className="absolute top-0 left-0 w-full h-[6px] bg-[#ff2a2a] rounded-t-2xl" />
 
