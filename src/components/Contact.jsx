@@ -90,6 +90,21 @@ export default function Contact() {
       return
     }
 
+    // Ensure common EmailJS template variable aliases (from_name, reply_to, email) are populated
+    const setHiddenField = (name, value) => {
+      let field = form.querySelector(`input[name="${name}"]`)
+      if (!field) {
+        field = document.createElement('input')
+        field.type = 'hidden'
+        field.name = name
+        form.appendChild(field)
+      }
+      field.value = value
+    }
+    setHiddenField('from_name', `${firstName} ${lastName}`.trim())
+    setHiddenField('reply_to', email)
+    setHiddenField('email', email)
+
     setStatus('sending')
 
     if (!isConfigured) {
